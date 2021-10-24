@@ -3,15 +3,24 @@ import 'package:application_get_giphy/services/service_api.dart';
 import 'package:get/get.dart';
 
 class Controller extends GetxController {
-  List<Images> img = [];
+  var lokinggiphy = List<Images>.empty().obs;
   var isLoading = true.obs;
 
   Future getAll() async {
     try {
       isLoading(true);
-      img = await ServiceApi.getAllData();
-    } catch (e) {
+      var giphy = await ServiceApi.getAllData();
+      if (lokinggiphy != null) {
+        lokinggiphy.value = giphy;
+      }
+    } finally {
       isLoading(false);
     }
+  }
+
+  @override
+  void onInit() {
+    getAll();
+    super.onInit();
   }
 }
