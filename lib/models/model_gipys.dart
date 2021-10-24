@@ -15,12 +15,12 @@ class ModelGiphy {
         this.meta,
     });
 
-    List<Datum> data;
+    List<Images> data;
     Pagination pagination;
     Meta meta;
 
     factory ModelGiphy.fromJson(Map<String, dynamic> json) => ModelGiphy(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: List<Images>.from(json["data"].map((x) => Datum.fromJson(x))),
         pagination: Pagination.fromJson(json["pagination"]),
         meta: Meta.fromJson(json["meta"]),
     );
