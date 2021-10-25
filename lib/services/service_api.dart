@@ -1,24 +1,20 @@
-import 'package:application_get_giphy/data/url_data.dart';
+import 'dart:convert';
+
 import 'package:application_get_giphy/models/model_gipys.dart';
 import 'package:http/http.dart' as http;
 
 class ServiceApi {
-  static Future getAllData() async {
-    List<Images> img = [];
+  static var client = http.Client();
+  Future<List<Images>> getAllData() async {
     final urlgetall =
-        "rending?api_key=R6S9BhCcsCv7tyUBhGBj1cdFl6LBJ7hd&limit=25&rating=g";
-
-    try {
-      http.Response response = await http.get(
-        Uri.parse(Url + urlgetall),
-      );
-      if (response.statusCode == 200) {
-        final resjson = modelGiphyFromJson(response.body);
-        img = resjson.data;
-        print(img);
-        return img;
-      }
-    } catch (e) {
+        "https://api.giphy.com/v1/gifs/trending?api_key=R6S9BhCcsCv7tyUBhGBj1cdFl6LBJ7hd&limit=25&rating=g";
+    http.Response response = await http.get(
+      Uri.parse(urlgetall),
+    );
+    if (response.statusCode == 200) {
+      String jsontopar = response.body;
+      return imagesFromJson(jsontopar);
+    } else {
       return null;
     }
   }
