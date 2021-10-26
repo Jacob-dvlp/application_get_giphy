@@ -1,3 +1,4 @@
+import 'package:application_get_giphy/constants/text.dart';
 import 'package:application_get_giphy/views/card.dart';
 import 'package:application_get_giphy/views/controller.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class HomeGiphy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text(TextCostantes.TitleHome),),
       body: Column(
         children: [
           Expanded(

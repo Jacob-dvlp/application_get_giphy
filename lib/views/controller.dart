@@ -3,8 +3,8 @@ import 'package:application_get_giphy/services/service_api.dart';
 import 'package:get/get.dart';
 
 class Controller extends GetxController {
-  var lokinggiphy = List<Images>().obs;
-  var   isLoading = true.obs;
+  var lokinggiphy = List<Datum>().obs;
+  var isLoading = true.obs;
   ServiceApi _services = ServiceApi();
 
   void getAll() async {
