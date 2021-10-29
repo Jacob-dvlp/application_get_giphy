@@ -15,12 +15,12 @@ class ModelGip {
         this.meta,
     });
 
-    List<Datum> data;
+    List<ListGyph> data;
     Pagination pagination;
     Meta meta;
 
     factory ModelGip.fromJson(Map<String, dynamic> json) => ModelGip(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: List<ListGyph>.from(json["data"].map((x) => ListGyph.fromJson(x))),
         pagination: Pagination.fromJson(json["pagination"]),
         meta: Meta.fromJson(json["meta"]),
     );
@@ -32,8 +32,8 @@ class ModelGip {
     };
 }
 
-class Datum {
-    Datum({
+class ListGyph {
+    ListGyph({
         this.type,
         this.id,
         this.url,
@@ -79,7 +79,7 @@ class Datum {
     String analyticsResponsePayload;
     Analytics analytics;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory ListGyph.fromJson(Map<String, dynamic> json) => ListGyph(
         type: typeValues.map[json["type"]],
         id: json["id"],
         url: json["url"],
