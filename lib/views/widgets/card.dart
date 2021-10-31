@@ -23,12 +23,20 @@ class CardGiphy extends StatelessWidget {
               img.images.original.url
             ],
           ),
-          child: Card(
-            child: Column(
-              children: [
-                Image.network(img.images.original.url),
-              ],
-            ),
+          child: GetBuilder<Controller>(
+            init: Controller(),
+            initState: (_) {},
+            builder: (_) {
+              return Card(
+                child: Column(
+                  children: [
+                    _.lokinggiphy.isEmpty
+                        ? CircularProgressIndicator.adaptive()
+                        : Image.network(img.images.original.url)
+                  ],
+                ),
+              );
+            },
           ),
         );
       },

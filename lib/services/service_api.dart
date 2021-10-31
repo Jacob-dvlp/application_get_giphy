@@ -8,14 +8,12 @@ import 'package:http/http.dart' as http;
 class ServiceApi extends Interface {
   static var client = http.Client();
   List<ListGyph> listaimg = [];
-  final urlEnd =
-      "trending?api_key=R6S9BhCcsCv7tyUBhGBj1cdFl6LBJ7hd&limit=25&rating=g";
 
   @override
   Future getAllGif() async {
     try {
       http.Response response = await http.get(
-        Uri.parse(Url + urlEnd),
+        Uri.parse(urlgetData),
       );
       if (response.statusCode == 200) {
         String jsontopar = Utf8Decoder().convert(response.bodyBytes);

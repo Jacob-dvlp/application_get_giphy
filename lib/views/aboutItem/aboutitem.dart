@@ -9,8 +9,17 @@ class AboutItem extends StatelessWidget {
         init: Controlleritem(),
         builder: (_) {
           return Scaffold(
+
+            backgroundColor: Colors.black,
+            appBar: AppBar(
+              backgroundColor: Colors.black,
+              actions: [
+                IconButton(onPressed: (){}, icon: Icon(Icons.share))
+              ],
+            ),
             body: Container(
               width: Get.width,
+              height: Get.height,
               child: Image.network(
                 _.data[2],
               ),
@@ -19,4 +28,3 @@ class AboutItem extends StatelessWidget {
         });
   }
 }
-
